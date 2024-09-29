@@ -16,6 +16,7 @@
         <br>
         <a href="/apparatus">APPARATUS-Dificult</a>
         <h5>MASTER</h5>
+        <h5>DEVELOP</h5>
     </div>
 </body>
 </html>
