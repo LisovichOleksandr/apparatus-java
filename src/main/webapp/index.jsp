@@ -2,6 +2,7 @@
 <body>
     <h1>My Home Apache TomCat</h1>
     <div>
+        <h1>My Site</1>
         <h2>WEB-INF/vievs/...</h2>
         <a href="/people">PEOPLE</a>
         <br>
