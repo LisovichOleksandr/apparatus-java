@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thumeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>People</title>
+</head>
+<body>
+    <h1>Show Field</h1>
+    <p th:text="${person.getNamelogin()}">VALUE</p>
+    <p th:text="${person.getId()}">VALUE</p>
+    <p th:text="${person.getAge()}">VALUE</p>
+    <p th:text="${person.getEmail()}">VALUE</p>
+
+    <!-- @{/people/{id}/edit...} - перенаправление по адресу
+     (id=${person.getId()}) - присваивание в переменную id, id из модели, которая лежит в объект person
+     -->
+    <a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
+    <!-- th:action="" - адрес запроса -->
+    <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

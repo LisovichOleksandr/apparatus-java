@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thumeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+    <h1>New Field</h1>
+<!-- th:method="POST" -- http метод отправки
+    th:action="@{/people}" -- на какой адрес эта форма будет обращаться для передачи данных
+    th:object="${person}"-- передаем на вход обьект под ключом person, который мы положили в модель,
+    к этому обьекту мы обращаемся и для етого обьекта будет создаваться форма-->
+    <form th:method="POST" th:action="@{/people}" th:object="${person}">
+        <!--TASK -- указать поле для обьекта person-->
+        <!-- th:field="*{name}" (назначение значения для...name) у обьекта класса Person, поле наз. name
+         id="name" -- чтобы сделать <lable>-->
+        <label for="namelogin">Enter name</label>
+        <input type="text" th:field="*{namelogin}" id="namelogin"/>
+        <!-- Для отображения ошибок, если они есть-->
+        <!-- #fields - получаем доступ к полям объекта person, есть ли ошибки? 'name' - поля -->
+        <div style="color: red" th:if="${#fields.hasErrors('namelogin')}" th:errors="*{namelogin}">Name error</div>
+        <br>
+
+        <label for="age">Enter age</label>
+        <input type="text" th:field="*{age}" id="age"/>
+        <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+        <br>
+
+        <label for="email">Email</label>
+        <input type="text" th:field="*{email}" id="email">
+        <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+        <br>
+
+        <br/>
+        <input type="submit" value="Create"/>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thumeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All-people</title>
+</head>
+<body>
+<h1>People List</h1>
+  <div th:each="person : ${people}">
+    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getNamelogin() + ', ' + person.getAge()}">user</a>
+  </div>
+  <div>
+    <hr>
+    <a href="/people/new">New</a>
+  </div>
+  <div>
+    <h3>Create DAO _reflection</h3>
+    <ul>
+      <li>1. Three package with class (controllers, dao, models)</li>
+      <li>2. models is ordinary class</li>
+      <li>3. DAO class create List of model and have methods for work with data. </li>
+      <li>4. Controller uses IoC and DI in constructor for DAO</li>
+      <li>5. findAny()--return if have got, orElse(null)--else return null <br>
+        return people.stream().filter(person -> person.getId() == id).findAny().orElse(null);</li>
+      <li>5. thumeleaf: th:each="person : ${people}, th:href="", th:text=""</li>
+    </ul>
+  </div>
+</body>
+</html>

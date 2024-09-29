@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thumeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update person</title>
+</head>
+<body>
+    <h1>Edit Field</h1>
+
+    <form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+    <!-- th:object="${person}" -- этот атрибут возьмет обьект person, значение name,
+    и вставит его в поле <input type="text" th:field="*{name}" id="name"/> -->
+    <label for="namelogin">Enter name</label>
+    <input type="text" th:field="*{namelogin}" id="namelogin"/>
+    <div style="color: red" th:if="${#fields.hasErrors('namelogin')}" th:errors="*{namelogin}">Name error</div>
+        <br/>
+
+    <label for="age">Enter age</label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+        <br/>
+
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email">
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+        <br/>
+
+    <input type="submit" value="Update"/>
+</form>
+</body>
+</html>
