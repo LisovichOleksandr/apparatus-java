@@ -11,6 +11,8 @@
         <a href="/word">WORD</a>
         <br>
         <a href="/apparatus">APPARATUS</a>
+        <br>
+        <a href="/apparatus">APPARATUS-Dificult</a>
     </div>
 </body>
 </html>
