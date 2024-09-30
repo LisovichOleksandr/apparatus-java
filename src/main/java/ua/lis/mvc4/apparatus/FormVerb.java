@@ -1,11 +1,12 @@
 package ua.lis.mvc4.apparatus;
 
 public class FormVerb {
-    public String nameUa;
-    public String infinitive;
-    public String pastSimple;
-    public String pastParticiple;
-    public String ing;
+    private int id;
+    private String nameUa;
+    private String infinitive;
+    private String pastSimple;
+    private String pastParticiple;
+    private String ing;
 
     public FormVerb(){}
 
@@ -15,6 +16,14 @@ public class FormVerb {
         this.pastSimple = pastSimple;
         this.pastParticiple = pastParticiple;
         this.ing = ing;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameUa() {
@@ -58,10 +67,9 @@ public class FormVerb {
     }
 
     public String getAllFormVerb(){
-        String allFormVerb = getPastSimple().equals(getPastParticiple())
+        return getPastSimple().equals(getPastParticiple())
                 ? getNameUa() + " - " + getInfinitive() + " - " + getPastSimple()+ " - " + getIng()
                 : getNameUa() + " - " + getInfinitive() + " - " + getPastSimple() + " - " +getPastParticiple() +
                 " " + getIng();
-        return allFormVerb;
     }
 }
