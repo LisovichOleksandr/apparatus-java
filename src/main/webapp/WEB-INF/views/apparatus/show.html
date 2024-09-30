@@ -7,7 +7,8 @@
 <body>
   <h1>Show mast go on!!!</h1>
   <div th:each="verb : ${show}">
-    <p th:text="${verb.getNameUa() + ' - ' + verb.getInfinitive()}">verb</p>
+      <p th:text="${verb.getAllFormVerb()}">all form</p>
+
   </div>
   <a href="/apparatus/edit">EDIT</a>
 </body>

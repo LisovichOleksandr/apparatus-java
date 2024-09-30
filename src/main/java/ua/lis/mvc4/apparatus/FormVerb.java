@@ -56,4 +56,12 @@ public class FormVerb {
     public void setIng(String ing) {
         this.ing = ing;
     }
+
+    public String getAllFormVerb(){
+        String allFormVerb = getPastSimple().equals(getPastParticiple())
+                ? getNameUa() + " - " + getInfinitive() + " - " + getPastSimple()+ " - " + getIng()
+                : getNameUa() + " - " + getInfinitive() + " - " + getPastSimple() + " - " +getPastParticiple() +
+                " " + getIng();
+        return allFormVerb;
+    }
 }
