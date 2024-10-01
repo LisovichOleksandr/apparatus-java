@@ -40,6 +40,11 @@ public class ApparatusDAO {
     public List<FormVerb> getTenVerb(){
         return getVerbsDb();
     }
+
+    public FormVerb getVerb(int id){
+        return jdbcTemplate.query("SELECT * FROM Verb WHERE id=?", new Object[]{id}, new VerbsMapper())
+                .stream().findAny().orElse(null);
+    }
 }
 
 /*
