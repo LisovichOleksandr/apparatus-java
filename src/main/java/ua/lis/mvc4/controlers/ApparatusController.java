@@ -3,10 +3,8 @@ package ua.lis.mvc4.controlers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import ua.lis.mvc4.apparatus.FormVerb;
 import ua.lis.mvc4.dao.ApparatusDAO;
 
 @Controller
@@ -34,15 +32,19 @@ public class ApparatusController {
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") int id, Model model){
-        model.addAttribute("wordEdit", apparatusDAO.getVerb(id));
+        model.addAttribute("wordEdit", new FormVerb());
         return "/apparatus/edit";
     }
 
     @GetMapping("/new")
-    public String newWordForm(){
+    public String newWordForm(Model model){
+        model.addAttribute("verb", new FormVerb());
         return "/apparatus/new";
     }
 
     @PostMapping("/new")
-    public void addWord(){}
+    public String createWord(@ModelAttribute("newVerb") FormVerb formVerb){
+        apparatusDAO.saveVerb(formVerb);
+        return "redirect:/apparatus";
+    }
 }

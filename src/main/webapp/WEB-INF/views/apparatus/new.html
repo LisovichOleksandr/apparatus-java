@@ -6,21 +6,21 @@
 </head>
 <body>
   <h1>NEW</h1>
-  <form method="post" action="/apparatus/new">
+  <form th:method="POST" action="/apparatus/new" th:object="${verb}">
     <label for="ua">Ua, Ru</label>
-    <input type="text" name="" id="ua">
+    <input type="text" th:field="*{nameUa}" name="" id="ua">
     <hr>
     <label for="infinitive">Infinitive</label>
-    <input type="text" name="" id="infinitive">
+    <input type="text" th:field="*{infinitive}" id="infinitive">
     <hr>
     <label for="pastsimple">Past simple</label>
-    <input type="text" name="" id="pastsimple">
+    <input type="text" th:field="*{pastSimple}" id="pastsimple">
     <hr>
     <label for="pastparticiple">Past Participle</label>
-    <input type="text" name="" id="pastparticiple">
+    <input type="text" th:field="*{pastParticiple}" id="pastparticiple">
     <hr>
     <label for="ing">Ing</label>
-    <input type="text" name="" id="ing">
+    <input type="text" th:field="*{ing}" id="ing">
     <hr>
     <input type="submit" value="New word"/>
   </form>

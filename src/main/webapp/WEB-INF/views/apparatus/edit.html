@@ -7,7 +7,7 @@
 <body>
   <div>
     <h1>Edit Word</h1>
-      <form th:method="POST" th:action="/apparatus/edit/" th:object="${wordEdit}">
+      <form th:method="POST" th:action="/apparatus/update/" th:object="${wordEdit}">
           <label for="ua">Ua, Ru</label>
           <input type="text" th:field="*{nameUa}" id="ua">
           <hr>

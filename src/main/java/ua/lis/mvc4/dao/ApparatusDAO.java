@@ -45,6 +45,12 @@ public class ApparatusDAO {
         return jdbcTemplate.query("SELECT * FROM Verb WHERE id=?", new Object[]{id}, new VerbsMapper())
                 .stream().findAny().orElse(null);
     }
+
+    public void saveVerb(FormVerb formVerb){
+        jdbcTemplate.update("INSERT INTO public.verb (infinitive, pastsimple, pastparticiple, ing, nameUa)" +
+                        " VALUES (?, ?, ?, ?, ?);", formVerb.getInfinitive(),
+                formVerb.getPastSimple(), formVerb.getPastParticiple(), formVerb.getIng(), formVerb.getNameUa());
+    }
 }
 
 /*
