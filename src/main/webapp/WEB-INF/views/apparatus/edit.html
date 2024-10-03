@@ -2,12 +2,12 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Edit</title>
+    <title>Update Verb</title>
 </head>
 <body>
   <div>
     <h1>Edit Word</h1>
-      <form th:method="POST" th:action="/apparatus/update/" th:object="${wordEdit}">
+      <form th:method="PATCH" th:action="@{/apparatus/verb/{id}(id=${verbEdit.getId()})}" th:object="${verbEdit}">
           <label for="ua">Ua, Ru</label>
           <input type="text" th:field="*{nameUa}" id="ua">
           <hr>
@@ -23,7 +23,7 @@
           <label for="ing">Ing</label>
           <input type="text" th:field="*{ing}" id="ing">
           <hr>
-          <input type="submit" value="New word"/>
+          <input type="submit" value="Update!"/>
       </form>
   </div>
 </body>

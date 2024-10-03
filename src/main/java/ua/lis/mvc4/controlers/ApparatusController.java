@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.lis.mvc4.apparatus.FormVerb;
 import ua.lis.mvc4.dao.ApparatusDAO;
 
+import java.text.Normalizer;
+
 @Controller
 @RequestMapping("/apparatus")
 public class ApparatusController {
@@ -31,8 +33,8 @@ public class ApparatusController {
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(@PathVariable("id") int id, Model model){
-        model.addAttribute("wordEdit", new FormVerb());
+    public String edit(Model model, @PathVariable("id") int id){
+        model.addAttribute("verbEdit", apparatusDAO.getVerb(id));
         return "/apparatus/edit";
     }
 
@@ -47,4 +49,11 @@ public class ApparatusController {
         apparatusDAO.saveVerb(formVerb);
         return "redirect:/apparatus";
     }
+
+    @PatchMapping("/verb/{id}")
+    public String updateVerb(@ModelAttribute("verb") FormVerb formVerb, @PathVariable("id") int id){
+        apparatusDAO.updateVerb(formVerb, id);
+        return "redirect:/apparatus/show";
+    }
+
 }
