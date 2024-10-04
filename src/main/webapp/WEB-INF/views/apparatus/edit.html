@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Edit</title>
+    <title>Update Verb</title>
 </head>
 <body>
   <div>
-    <h1>Words</h1>
-
+    <h1>Edit Word</h1>
+      <form th:method="PATCH" th:action="@{/apparatus/verb/{id}(id=${verbEdit.getId()})}" th:object="${verbEdit}">
+          <label for="ua">Ua, Ru</label>
+          <input type="text" th:field="*{nameUa}" id="ua">
+          <hr>
+          <label for="infinitive">Infinitive</label>
+          <input type="text" th:field="*{infinitive}" id="infinitive">
+          <hr>
+          <label for="pastsimple">Past simple</label>
+          <input type="text" th:field="*{pastSimple}" id="pastsimple">
+          <hr>
+          <label for="pastparticiple">Past Participle</label>
+          <input type="text" th:field="*{pastParticiple}" id="pastparticiple">
+          <hr>
+          <label for="ing">Ing</label>
+          <input type="text" th:field="*{ing}" id="ing">
+          <hr>
+          <input type="submit" value="Update!"/>
+      </form>
   </div>
 </body>
 </html>

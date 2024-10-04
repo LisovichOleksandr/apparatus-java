@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>Show</title>
@@ -7,8 +7,7 @@
 <body>
   <h1>Show mast go on!!!</h1>
   <div th:each="verb : ${show}">
-    <p th:text="${verb.getNameUa() + ' - ' + verb.getInfinitive()}">verb</p>
+      <a th:href="@{/apparatus/{id}/edit(id=${verb.getId()})}" th:text="${verb.getAllFormVerb()}">all form</a>
   </div>
-  <a href="/apparatus/edit">EDIT</a>
 </body>
 </html>
