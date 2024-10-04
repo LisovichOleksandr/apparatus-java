@@ -10,6 +10,7 @@ public class VerbsMapper implements RowMapper<FormVerb> {
     @Override
     public FormVerb mapRow(ResultSet resultSet, int rowNum) throws SQLException {
             FormVerb formVerb = new FormVerb();
+            formVerb.setId(resultSet.getInt("id"));
             formVerb.setInfinitive(resultSet.getString("infinitive"));
             formVerb.setPastSimple(resultSet.getString("pastsimple"));
             formVerb.setPastParticiple(resultSet.getString("pastparticiple"));

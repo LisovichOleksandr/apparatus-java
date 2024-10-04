@@ -40,6 +40,26 @@ public class ApparatusDAO {
     public List<FormVerb> getTenVerb(){
         return getVerbsDb();
     }
+
+    public FormVerb getVerb(int id){
+        return jdbcTemplate.query("SELECT * FROM Verb WHERE id=?", new Object[]{id}, new VerbsMapper())
+                .stream().findAny().orElse(null);
+    }
+
+    public void saveVerb(FormVerb formVerb){
+        jdbcTemplate.update("INSERT INTO public.verb (infinitive, pastsimple, pastparticiple, ing, nameUa)" +
+                        " VALUES (?, ?, ?, ?, ?);", formVerb.getInfinitive(),
+                formVerb.getPastSimple(), formVerb.getPastParticiple(), formVerb.getIng(), formVerb.getNameUa());
+    }
+
+    public void updateVerb(FormVerb formVerb, int id){
+        jdbcTemplate.update("UPDATE public.verb SET infinitive = ?, pastsimple = ?, pastparticiple = ?, " +
+                "ing = ?, nameUa = ? WHERE id = ?;", formVerb.getInfinitive(), formVerb.getPastSimple(),
+                formVerb.getPastParticiple(), formVerb.getIng(), formVerb.getNameUa(), id);
+
+//        UPDATE public.verb SET infinitive = 'sssssss'::text, pastsimple = 'sasaasas'::text,
+//                pastparticiple = 'qwwqw'::text, ing = 'sds'::text, nameua = 'про'::text WHERE id = '16';
+    }
 }
 
 /*

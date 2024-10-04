@@ -41,7 +41,7 @@ public class VerbAllForm implements Word{
 
     @Override
     public String getWord() {
-        return dbVerbs.get((int)(Math.random()*100)%dbVerbs.size()).infinitive;
+        return dbVerbs.get((int)(Math.random()*100)%dbVerbs.size()).getInfinitive();
     }
 
     @Override
